@@ -160,7 +160,7 @@ namespace GitStash
                 TraceWriteLine("Setting directory: " + path);
                 events.ChangeDirectory(path);
             }
-            
+            object o = CreateGitWrapperService(serviceContainer, typeof(IGitStashWrapper));
             TraceWriteLine("Package Initialization: Done");
         }
 

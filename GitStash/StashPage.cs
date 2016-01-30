@@ -22,14 +22,14 @@ namespace GitStash
         private static ITeamExplorer teamExplorer;
         Translator T;
         private IGitStashWrapper gitWrapper;
-        private IGitExt gitService;
+        //private IGitExt gitService;
 
         [ImportingConstructor]
         public StashPage([Import(typeof(SVsServiceProvider))] IServiceProvider serviceProvider)
         {
             
             teamExplorer = (ITeamExplorer)serviceProvider.GetService(typeof(ITeamExplorer));
-            gitService = (IGitExt)serviceProvider.GetService(typeof(IGitExt));                        
+            //gitService = (IGitExt)serviceProvider.GetService(typeof(IGitExt));                        
            
         }
 

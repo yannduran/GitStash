@@ -65,8 +65,14 @@ namespace GitWrapper
                     if (repo == null) return stashes;
                     foreach (Stash stash in repo.Stashes)
                     {
-                        GitStashItem s = new GitStashItem(stash);
-                        stashes.Add(s);
+                        try {
+                            GitStashItem s = new GitStashItem(stash);
+                            stashes.Add(s);
+                        }
+                        catch(Exception ex)
+                        {
+                            Logger.WriteLine($"Couldn't load stash: {ex.Message}");
+                        }
                     }
                     return stashes;
                 }
