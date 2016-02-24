@@ -71,6 +71,8 @@ namespace GitStash
 
         public const string StashesSection = "E162E6A9-66E3-409D-B825-7BB31C3B60C4";
         public const string RecommendedActionsSection = "{9CC25864-F7AA-45C2-9F78-0B1DDE2547A9}";
+        public const string StashToBranchSection = "{A24843E0-C462-4529-BBC7-410A43BA9A4B}";
+
         private IGitStashWrapper wrapper = null;
         private IGitStashProjectEvents events = null;
         private IGitExt gitService = null;
@@ -131,7 +133,6 @@ namespace GitStash
                 return this;
             }
             throw new ArgumentException();
-            return null;
         }
 
         #region Package Members

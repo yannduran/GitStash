@@ -12,6 +12,7 @@ namespace GitWrapper
         IList<string> GetUntrackedChangesList(int stashIndex);
         IGitStashResults PopStash(IGitStashPopOptions options, int index);
         IGitStashResults SaveStash(IGitStashSaveOptions options);
+        IGitStashResults CreateBranchFromStash(IGitStashCreateBranchOptions options, int index);
         bool WorkingDirHasChanges();
         event GitStashWrapper.StashesChangedEventHandler StashesChangedEvent;
         int GetUntrackedFileCount();

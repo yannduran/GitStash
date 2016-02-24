@@ -71,11 +71,13 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="GitStashCreateBranchOptions.cs" />
     <Compile Include="GitStashException.cs" />
     <Compile Include="GitStashInvalidIndexException.cs" />
     <Compile Include="GitStashResultsSuccess.cs" />
     <Compile Include="GitStashWrapper.cs" />
     <Compile Include="IGitStashApplyOptions.cs" />
+    <Compile Include="IGitStashCreateBranchOptions.cs" />
     <Compile Include="IGitStashDropOptions.cs" />
     <Compile Include="IGitStashPopOptions.cs" />
     <Compile Include="IGitStashSaveOptions.cs" />

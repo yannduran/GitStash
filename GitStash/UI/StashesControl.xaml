@@ -9,7 +9,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-        <ResourceDictionary Source="/GitStash;component/Resources/Dictionary.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/GitStash;component/Resources/Dictionary.xaml" />
+                <ResourceDictionary>
+                    <BooleanToVisibilityConverter x:Key="BoolToVis" />
+                    <local:LanguageConverter x:Key="LangConverter" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
     <wpf:DraggableListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  ItemsSource="{Binding Stashes}" HorizontalContentAlignment="Stretch" BorderThickness="0" Margin="5,0,0,0">
             <wpf:DraggableListBox.ItemTemplate>
@@ -23,10 +31,12 @@
                     <teamExplorer:DropDownLink Margin="3,6,3,0" Text="Actions" Grid.Column="1">
                         <teamExplorer:DropDownLink.DropDownMenu>
                             <ContextMenu>
-                                <MenuItem Header="Apply" Command="{Binding Path=ApplyDropDownCommand}"></MenuItem>
-                                <MenuItem Header="Apply and Delete" Command="{Binding Path=PopDropDownCommand}"></MenuItem>
+                                <MenuItem Header="{Binding Converter={StaticResource LangConverter},ConverterParameter='Apply'}" Command="{Binding Path=ApplyDropDownCommand}"></MenuItem>
+                                <MenuItem Header="{Binding Converter={StaticResource LangConverter},ConverterParameter='Apply and Delete'}" Command="{Binding Path=PopDropDownCommand}"></MenuItem>
                                 <Separator/>
-                                <MenuItem Header="Delete" Command="{Binding Path=DeleteDropDownCommand}"></MenuItem>
+                                <MenuItem Header="{Binding Converter={StaticResource LangConverter},ConverterParameter='Create Branch'}" Command="{Binding Path=CreateBranchCommand}"></MenuItem>
+                                <Separator/>
+                                <MenuItem Header="{Binding Converter={StaticResource LangConverter},ConverterParameter='Delete'}" Command="{Binding Path=DeleteDropDownCommand}"></MenuItem>
                             </ContextMenu>
                         </teamExplorer:DropDownLink.DropDownMenu>
                     </teamExplorer:DropDownLink>

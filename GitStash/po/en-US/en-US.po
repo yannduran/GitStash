@@ -13,8 +13,32 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: en-US\n"
 
+msgid "Invalid branch name."
+msgstr "Invalid branch name."
+
+msgid "Creating Branch {0} from stash: {1}"
+msgstr "Creating Branch {0} from stash: {1}"
+
+msgid "Created Branch"
+msgstr "Created Branch"
+
+msgid "Failed to create branch"
+msgstr "Failed to create branch"
+
 msgid "Apllying stash: {0}"
 msgstr "Apllying stash: {0}"
+
+msgid "Apply"
+msgstr "Apply"
+
+msgid "Apply and Delete"
+msgstr "Apply and Delete"
+
+msgid "Create Branch"
+msgstr "Create Branch"
+
+msgid "Delete"
+msgstr "Delete"
 
 msgid "Repository not initialized"
 msgstr "Repository not initialized"

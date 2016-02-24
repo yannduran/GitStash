@@ -56,9 +56,11 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Extensions.cs" />
     <Compile Include="IGitStashProjectEvents.cs" />
     <Compile Include="IGitStashProjects.cs" />
     <Compile Include="IGitStashTranslator.cs" />
+    <Compile Include="IMessageBoxService.cs" />
     <Compile Include="INavigateable.cs" />
     <Compile Include="ProjectDirectoryEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

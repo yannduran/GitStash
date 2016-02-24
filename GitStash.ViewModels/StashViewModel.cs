@@ -1,6 +1,7 @@
 ﻿using GitWrapper;
 using Microsoft.TeamFoundation.Controls;
 using Microsoft.TeamFoundation.MVVM;
+using Microsoft.VisualStudio.Shell;
 using SecondLanguage;
 using System;
 using System.ComponentModel;
@@ -32,7 +33,16 @@ namespace GitStash.ViewModels
             PopDropDownCommand = new RelayCommand(p => OnClickPopStash(), p => AlwaysTrueCanDropDown);
             ApplyDropDownCommand = new RelayCommand(p => OnClickApplyStash(), p => AlwaysTrueCanDropDown);
             DeleteDropDownCommand = new RelayCommand(p => OnClickDropStash(), p => AlwaysTrueCanDropDown);
+            CreateBranchCommand = new RelayCommand(p => OnClickCreateBranch(), p => AlwaysTrueCanDropDown);
         }
+        private void OnClickCreateBranch()
+        {
+            
+            IGitStashResults results = wrapper.CreateBranchFromStash(new GitStashCreateBranchOptions(), Stash.Index);
+            if (!string.IsNullOrEmpty(results.Message))
+                page.ShowNotification(results.Message, NotificationType.Information);
+        }
+
         protected virtual void OnAfterDeleted()
         {
             if (AfterDelete != null)
@@ -63,6 +73,8 @@ namespace GitStash.ViewModels
         public RelayCommand PopDropDownCommand { get; set; }
         public RelayCommand ApplyDropDownCommand { get; set; }
         public RelayCommand DeleteDropDownCommand { get; set; }
+        public RelayCommand CreateBranchCommand { get; set; }
+
         public bool AlwaysTrueCanDropDown { get { return true; } }
 
         public string DisplayString {get{ return T["stash{{{0}}}: {1}", Stash.Index, Stash.Message]; }}

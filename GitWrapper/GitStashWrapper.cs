@@ -253,6 +253,48 @@ namespace GitWrapper
                 }
             }
         }
+//TODO this list isn't completly accurate, it returns false more than it should
+        private bool isLegalBranchName(string name)
+        {
+            // this url expands this list https://www.kernel.org/pub/software/scm/git/docs/git-check-ref-format.html
+            if (name.StartsWith(".")) return false;
+             if (name.Contains("..")) return false ;
+            if (name.Contains("~")) return false; //ascii
+            if (name.Contains("^")) return false;//ascii
+            if (name.Contains(":")) return false;//ascii
+            if (name.Contains(" ")) return false;//ascii
+            if (name.EndsWith("/")) return false;
+            if (name.EndsWith(".lock")) return false;
+            if (name.Contains("\\")) return false;
+            return true;
+        }
+        public IGitStashResults CreateBranchFromStash(IGitStashCreateBranchOptions options, int index)
+        {
+            lock (lockObject)
+            {
+                if (repo == null) return new GitStashResultsFailure(T["Repository not initialized"]);
+                if(options.Message.IsNullOrEmpty() || !isLegalBranchName(options.Message))
+                    return new GitStashResultsFailure(T["Invalid branch name."]);
+                Logger.WriteLine(T["Creating Branch {0} from stash: {1}", index]);
+                CheckForValidStashIndex(index);
+                int count = repo.Stashes.Count();
+                string name = options.Message;
+
+                ////////////////////////
+
+                ////////////////////////
+                if (repo.Stashes.Count() < count)
+                {
+                    Logger.WriteLine(T["Done."] + Environment.NewLine);
+                    return new GitStashResultsSuccess(T["Created Branch"]);
+                }
+                else
+                {
+                    Logger.WriteLine(T["Failed."]);
+                    return new GitStashResultsFailure(T["Failed to create branch"]);
+                }
+            }
+        }
 
         private Signature Stasher
         {

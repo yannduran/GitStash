@@ -66,6 +66,11 @@
     </Compile>
     <Compile Include="GitStashFileWatcher.cs" />
     <Compile Include="GitStashProjects.cs" />
+    <Compile Include="Sections\StashToBranchSection.cs" />
+    <Compile Include="Services\MessageBoxService.cs" />
+    <Compile Include="Services\PromptMessageBox.xaml.cs">
+      <DependentUpon>PromptMessageBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\LanguageConverter.cs" />
     <Compile Include="OutputWindowLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,6 +107,9 @@
       <DependentUpon>StashSettingsPageControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GitStashPackage.cs" />
+    <Compile Include="UI\StashToBranchControl.xaml.cs">
+      <DependentUpon>StashToBranchControl.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -261,6 +269,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Services\PromptMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\PageControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -274,6 +286,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\StashPageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\StashToBranchControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
