@@ -46,11 +46,8 @@
       <HintPath>..\packages\LibGit2Sharp.0.22.0\lib\net40\LibGit2Sharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.TeamFoundation.Client">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\w4eo15sr.k2p\Microsoft.TeamFoundation.Client.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.TeamFoundation.Controls">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\w4eo15sr.k2p\Microsoft.TeamFoundation.Controls.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\kxn3o4pa.p1k\Microsoft.TeamFoundation.Controls.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="SecondLanguage, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
