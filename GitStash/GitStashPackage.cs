@@ -85,7 +85,7 @@ namespace GitStash
             // Inside this method you can place any initialization code that does not require
             // any Visual Studio service because at this point the package object is created but
             // not sited yet inside Visual Studio environment. The place to do all the other
-            // initialization is the Initialize method.            
+            // initialization is the Initialize method.
         }
 
         private void TraceWriteLine(string msg)
@@ -106,7 +106,7 @@ namespace GitStash
                     outWindow.CreatePane(ref customGuid, "Git Stash", 1, 1);
                     outWindow.GetPane(ref customGuid, out outputWindow);
                     if (gitService.ActiveRepositories.FirstOrDefault() != null)
-                    {                        
+                    {
                         string path = gitService.ActiveRepositories.FirstOrDefault().RepositoryPath;
                         TraceWriteLine("Creating Wrapper service with path: " + path);
                         wrapper = new GitStashWrapper(path, events, new OutputWindowLogger(outputWindow), projects, Translator);
@@ -131,7 +131,6 @@ namespace GitStash
                 return this;
             }
             throw new ArgumentException();
-            return null;
         }
 
         #region Package Members
@@ -154,13 +153,13 @@ namespace GitStash
             gitService.PropertyChanged += GitService_PropertyChanged;
             this.projects = new GitStashProjects(this);
             this.events = new GitStashFileWatcher();
-            if(gitService.ActiveRepositories.FirstOrDefault() != null)
+            if (gitService.ActiveRepositories.FirstOrDefault() != null)
             {
                 string path = gitService.ActiveRepositories.FirstOrDefault().RepositoryPath;
                 TraceWriteLine("Setting directory: " + path);
                 events.ChangeDirectory(path);
             }
-            
+
             TraceWriteLine("Package Initialization: Done");
         }
 
@@ -180,13 +179,13 @@ namespace GitStash
             {
                 if (translator == null)
                 {
-                    
+
                     var poPath = Path.GetDirectoryName(GetType().Assembly.Location) + @"\po\";
                     TraceWriteLine("PO_PATH: " + poPath);
                     TraceWriteLine("CURRENT_CULTURE: " + CultureInfo.CurrentUICulture.Name);
                     translator = Translator.Default;
                     Translation[] t = translator.RegisterTranslationsByCulture(@"{0}\*.po", CultureInfo.CurrentUICulture, poPath);
-                    
+
                 }
                 return translator;
             }
